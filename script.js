@@ -15,17 +15,17 @@ function add(num1, num2) {
     return total;
 }
 
-function subtract() {
+function subtract(num1, num2) {
     total = num1 - num2;
     return total; 
 }
 
-function multiply() {
+function multiply(num1, num2) {
     total = num1 * num2;
     return total;
 }
 
-function divide() {
+function divide(num1, num2) {
     total = num1 / num2;
     return total;
 }
