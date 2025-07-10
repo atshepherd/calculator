@@ -40,40 +40,42 @@ let num1 = 0;
 let num2 = 0;
 let operator = "";
 
-let parent = document.querySelector(".num-buttons");
-let children = parent.children;
+let numButtons = document.querySelector(".num-buttons");
+let buttonsChildren = numButtons.children;
 
 let display = document.querySelector(".display");
 
 let clearButton= document.querySelector(".clear");
-    clearButton.addEventListener("click", () => {
-        num1 = 0;
-        display.textContent = "";
-    });
+
+clearButton.addEventListener("click", () => {
+    num1 = 0;
+    display.textContent = "";
+});
 
 let deleteButton = document.querySelector(".del");
 
-    deleteButton.addEventListener("click", () => {
-        num1 = display.textContent.slice(0, -1);
-        display.textContent = num1;
+deleteButton.addEventListener("click", () => {
+    num1 = display.textContent.slice(0, -1);
+    display.textContent = num1;
+});
+
+for (let i = 0; i < buttonsChildren.length; i++) {
+    buttonsChildren[i].addEventListener("mouseover", () => {
+        buttonsChildren[i].style.backgroundColor = "black";
     });
 
-for (let i = 0; i < children.length; i++) {
-    children[i].addEventListener("mouseover", () => {
-        children[i].style.backgroundColor = "black";
-    });
-    children[i].addEventListener("click", () => {
+    buttonsChildren[i].addEventListener("click", () => {
         if (num1 == 0) {
-           num1 = children[i].textContent; 
-        }
-        else num1 += children[i].textContent;
+        num1 = buttonsChildren[i].textContent; 
+        }   
+        else num1 += buttonsChildren[i].textContent;
         display.textContent = num1;
     });
 }
 
-for (let i = 0; i < children.length; i++) {
-    children[i].addEventListener("mouseout", () => {
-        children[i].style.backgroundColor = "gray";
+for (let i = 0; i < buttonsChildren.length; i++) {
+    buttonsChildren[i].addEventListener("mouseout", () => {
+        buttonsChildren[i].style.backgroundColor = "gray";
     });
 }
 
