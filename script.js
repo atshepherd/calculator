@@ -17,7 +17,7 @@ function operate(num1, num2, operator) {
 
 function add(num1, num2) {
     total = +num1 + +num2;
-    display.textContent = total; 
+    display.textContent = total;
 }
 
 function subtract(num1, num2) {
@@ -119,6 +119,8 @@ for (let i = 0; i < buttonsChildren.length; i++) {
 
         else if (buttonsChildren[i].textContent == "=") {
             operate(num1, num2, operator);
+            num1 = total;
+            num2 = 0;
         }
         // operate if equals sign is clicked
         
