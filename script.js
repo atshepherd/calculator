@@ -58,8 +58,16 @@ clearButton.addEventListener("click", () => {
 let deleteButton = document.querySelector(".del");
 
 deleteButton.addEventListener("click", () => {
-    num1 = display.textContent.slice(0, -1);
-    display.textContent = num1;
+    if (operator == "") {
+        num1 = display.textContent.slice(0, -1);
+        display.textContent = num1;  
+    }
+    
+    else {
+        num2 = display.textContent.slice(0, -1);
+        display.textContent = num2;
+    }
+
 });
 
 for (let i = 0; i < buttonsChildren.length; i++) {
@@ -117,7 +125,7 @@ for (let i = 0; i < buttonsChildren.length; i++) {
         console.log(`operator: ${operator}`); // debug
         console.log(`num1: ${num1}`); // debug
         console.log(`num2: ${num2}`); // debug
-
+        console.log(`total: ${total}`); // debug
     });
 }
 // assign input to num1
