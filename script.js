@@ -63,6 +63,7 @@ for (let i = 0; i < buttonsChildren.length; i++) {
     buttonsChildren[i].addEventListener("mouseover", () => {
         buttonsChildren[i].style.backgroundColor = "black";
     });
+    // add colors when hovered over
 
     buttonsChildren[i].addEventListener("click", () => {
         if (num1 == 0) {
