@@ -16,23 +16,23 @@ function operate(num1, num2, operator) {
 }
 
 function add(num1, num2) {
-    total = num1 + num2;
-    console.log(total);
+    total = +num1 + +num2;
+    display.textContent = total; 
 }
 
 function subtract(num1, num2) {
-    total = num1 - num2;
-    console.log(total); 
+    total = +num1 - +num2;
+    display.textContent = total; 
 }
 
 function multiply(num1, num2) {
-    total = num1 * num2;
-    console.log(total);
+    total = +num1 * +num2;
+    display.textContent = total; 
 }
 
 function divide(num1, num2) {
-    total = num1 / num2;
-    console.log(total);
+    total = +num1 / +num2;
+    display.textContent = total; 
 }
 
 let total = 0;
@@ -49,6 +49,9 @@ let clearButton= document.querySelector(".clear");
 
 clearButton.addEventListener("click", () => {
     num1 = 0;
+    num2 = 0;
+    total = 0;
+    operator = "";
     display.textContent = "";
 });
 
@@ -76,14 +79,50 @@ for (let i = 0; i < buttonsChildren.length; i++) {
 
 for (let i = 0; i < buttonsChildren.length; i++) {
     buttonsChildren[i].addEventListener("click", () => {
-        if (num1 == 0) {
-        num1 = buttonsChildren[i].textContent; 
-        }   
-        else num1 += buttonsChildren[i].textContent;
-        display.textContent = num1;
+        // if total is 0, and input is a number, and operator is empty, assign to num1
+        if ((buttonsChildren[i].textContent == "+" || buttonsChildren[i].textContent == "-" || buttonsChildren[i].textContent == "*" || buttonsChildren[i].textContent == "/") && num1 != 0) {
+            operator = buttonsChildren[i].textContent;
+        }
+        else if ((buttonsChildren[i].textContent == "1" || buttonsChildren[i].textContent == "2" || buttonsChildren[i].textContent == "3" || buttonsChildren[i].textContent == "4" || buttonsChildren[i].textContent == "5" || buttonsChildren[i].textContent == "6" || buttonsChildren[i].textContent == "7" || buttonsChildren[i].textContent == "8" || buttonsChildren[i].textContent == "9" || buttonsChildren[i].textContent == "0" || buttonsChildren[i].textContent == ".") && operator == "") {
+            if (num1 == 0) {
+                num1 = buttonsChildren[i].textContent;
+                display.textContent = num1;
+            }
+
+            else {
+                num1 += buttonsChildren[i].textContent;
+                display.textContent = num1;
+            }
+        }
+        // assign input to num1
+
+        else if ((buttonsChildren[i].textContent == "1" || buttonsChildren[i].textContent == "2" || buttonsChildren[i].textContent == "3" || buttonsChildren[i].textContent == "4" || buttonsChildren[i].textContent == "5" || buttonsChildren[i].textContent == "6" || buttonsChildren[i].textContent == "7" || buttonsChildren[i].textContent == "8" || buttonsChildren[i].textContent == "9" || buttonsChildren[i].textContent == "0" || buttonsChildren[i].textContent == ".") && operator != "") {
+            if (num2 == 0) {
+                num2 = buttonsChildren[i].textContent;
+                display.textContent = num2;
+            }
+
+            else {
+                num2 += buttonsChildren[i].textContent;
+                display.textContent = num2;
+            }
+        }
+        // assign input to num2
+
+        else if (buttonsChildren[i].textContent == "=") {
+            operate(num1, num2, operator);
+        }
+        // operate if equals sign is clicked
+        
+        console.log(`operator: ${operator}`); // debug
+        console.log(`num1: ${num1}`); // debug
+        console.log(`num2: ${num2}`); // debug
+
     });
 }
 // assign input to num1
+
+
 
 
 
