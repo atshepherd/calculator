@@ -63,8 +63,18 @@ for (let i = 0; i < buttonsChildren.length; i++) {
     buttonsChildren[i].addEventListener("mouseover", () => {
         buttonsChildren[i].style.backgroundColor = "black";
     });
-    // add colors when hovered over
+}
+// add colors when hovered over
 
+for (let i = 0; i < buttonsChildren.length; i++) {
+    buttonsChildren[i].addEventListener("mouseout", () => {
+        buttonsChildren[i].style.backgroundColor = "gray";
+    });
+}
+// remove colors when hovered over
+
+
+for (let i = 0; i < buttonsChildren.length; i++) {
     buttonsChildren[i].addEventListener("click", () => {
         if (num1 == 0) {
         num1 = buttonsChildren[i].textContent; 
@@ -73,12 +83,8 @@ for (let i = 0; i < buttonsChildren.length; i++) {
         display.textContent = num1;
     });
 }
+// assign input to num1
 
-for (let i = 0; i < buttonsChildren.length; i++) {
-    buttonsChildren[i].addEventListener("mouseout", () => {
-        buttonsChildren[i].style.backgroundColor = "gray";
-    });
-}
 
 
 /* num1 = +prompt("Please enter a number");
